@@ -1,14 +1,14 @@
 ![Logo](https://raw.githubusercontent.com/pangz-lab/ts-skeleton/main/ts-skeleton.png)
 # Typescript Skeleton
-This repo provides the bare minimum to effectively create and publish a typescript library.<br>
-In it's own, this repo has no This is a template anyone can use and customize.
+This repo provides the bare minimum files to effectively create and publish a typescript library.<br>
+This is a template anyone can use and customize.
 
-## Introduction
+## 
 Typescript and NodeJS has been around for some time but despite this fact, it's surprising that there is no standard of creating a library.
-It feels a bit cumbersome to start a project especially if you are a beginner who wants to simply develop and publish but cannot find a simpler and easy way to create one.
+It feels a bit cumbersome to start a project especially if you are a beginner who wants to simply develop and publish but cannot find a simpler and easy way to do it.
 <br>
 <br>
-Without a proper template to use, you might find yourself installing/uninstalling libraries or modules you think you need at first but turned out to be of no use (as far as library creation in concern).
+Without a proper template, you might find yourself installing/uninstalling libraries or modules you think you need at first but turned out to be of no use (as far as library creation in concern).
 <br>
 <br>
 This template helps to solve that issue.
