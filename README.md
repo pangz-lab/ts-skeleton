@@ -1,35 +1,34 @@
-
 ![Logo](https://raw.githubusercontent.com/pangz-lab/ts-skeleton/main/ts-skeleton.png)
 # Typescript Skeleton
-This repo provides the bare minimum to effectively create and publish a ts library.<br>
-In it's own, this repo has no function and simply serve as a template anyone can use and customize.
+This repo provides the bare minimum to effectively create and publish a typescript library.<br>
+In it's own, this repo has no This is a template anyone can use and customize.
 
 ## Introduction
-Typescript and NodeJS has been around for some time but despite of this, it's surprising that there is no standard steps of creating a library.
-It's a bit cumbersome to start a project especially if you are a beginner who wants to simply publish but cannot find a simpler and easy way to create one.
+Typescript and NodeJS has been around for some time but despite this fact, it's surprising that there is no standard of creating a library.
+It feels a bit cumbersome to start a project especially if you are a beginner who wants to simply develop and publish but cannot find a simpler and easy way to create one.
 <br>
 <br>
-Without a proper template to use, you might find yourself installing/uninstalling libraries or modules you think you need but turned out to be of no use(as far as library creation in concern).
+Without a proper template to use, you might find yourself installing/uninstalling libraries or modules you think you need at first but turned out to be of no use (as far as library creation in concern).
 <br>
 <br>
-This template helps to bridge that gap.
+This template helps to solve that issue.
 <br>
 <br>
-By following a few easy steps, you can create your own publishable library in a minute.
+Following a few easy steps, you can create your own publishable library in a minute.
 
 ## 📑 Requirements
 - `node`- `latest`
 - `npm`- `latest`
-- `npm` ***account***  ( create this only when you are ready to publish your library )
+- `npm` ***account***  ( create only when you are ready to publish )
 
-> There are no other hard requirements for using this however, publishing requires an account. Currently, this supports `npm` only (although there are other repository like yarn and others). You can check the official [npm](https://docs.npmjs.com/about-the-public-npm-registry) or [yarn](https://classic.yarnpkg.com/lang/en/docs/publishing-a-package/) website for more details. 
+> There are no other hard requirements aprt from publishing. Publishing requires an account. Currently, this supports `npm` only ( although there are other repository like yarn and others that can be used for publishing ). You can check the official [npm](https://docs.npmjs.com/about-the-public-npm-registry) or [yarn](https://classic.yarnpkg.com/lang/en/docs/publishing-a-package/) website for more details. 
 <br>
 <br>
 
-Publishing library to `npm` automatically make it available to `yarn` without an extra steps.
+Publishing library to `npm` automatically make it available to `yarn`.
 
 ## 📥 Installation
-Clone/download this repo by using any of the methods.
+Clone/download this repo by using any of the following methods.
 ### Git CLI
 ```bash
 git clone https://github.com/pangz-lab/ts-skeleton.git
@@ -54,15 +53,13 @@ wget -O ts-skeleton.zip https://github.com//pangz-lab/ts-skeleton/archive/refs/h
 >
 > Open your favorite terminal and run the following commands.
 > - [x] Make sure you're outside the project folder
-> - [x] Do an `ls` ( Linux or macOS ) or `dir`( Windows ) to check if you see the downloaded/extracted `ts-skeleton` folder
+> - [x] Do `ls` ( Linux or macOS ) or `dir`( Windows ) to check if you see the downloaded/extracted `ts-skeleton` folder
 > - [x] Update the `new-name` to your preferred library name
 <br>
 
 [![L](https://skillicons.dev/icons?i=linux)](-) [![L](https://skillicons.dev/icons?i=apple)](-)
 #### Linux & macOS
 ```bash
-# Update the new-name as the new library name
-# Running the ./tsk --init will show a prompt that allows an update of your package.json
 chmod +x ./ts-skeleton/tsk
 NEW_LIB_NAME=new-name
 mv ts-skeleton $NEW_LIB_NAME && cd $NEW_LIB_NAME && ./tsk --init && rm -rf .git
@@ -71,15 +68,13 @@ mv ts-skeleton $NEW_LIB_NAME && cd $NEW_LIB_NAME && ./tsk --init && rm -rf .git
 [![L](https://skillicons.dev/icons?i=windows)](-)
 #### Windows 
 ```cmd
-@rem Update the new-name as the new library name
-@rem Running the ./tsk --init will show a prompt that allows an update of your package.json
 set NEW_LIB_NAME=new-name
 move ts-skeleton %NEW_LIB_NAME% && cd %NEW_LIB_NAME% && tsk.cmd --init && rmdir /s /q .git
 ```
 
 # How to start?
-Simply follow the development flow below. There are check-points/notes for each section to serve as a guide however
-as your progress, you'll find yourself skipping most of it.
+Follow the development flow below. There are check-points/notes each section to serve as a guide however
+as your progress, you'll find yourself skipping most of it - which is OK.
 
 ### Optional Step
 Initialize git. [see here](https://cli.github.com/) for details.
@@ -88,25 +83,25 @@ git init
 ```
 
 ## 💻 Development
-- Run the following command to start your library.
-- It autoreloads your changes when updating parts of your code. Thanks to [`nodemon`](https://nodemon.io/).
+- Start your library
+- It autoreloads the code changes. Thanks to [`nodemon`](https://nodemon.io/).
 ```bash
 ./tsk --dev
 ```
-- While development, you might need to create another class and test class. Create using the following command.
+- Ceate a base class and a test class.
 ```bash
 ./tsk --create-class YourClass
 ```
 
 ## ✅ Testing
-- Run the following command to test your library.
-- [`jest`](https://jestjs.io/) is used as the main testing framework.
+- [x] Test your library.
+- [x] [`jest`](https://jestjs.io/) is used as the main testing framework.
 ```bash
 ./tsk --test
 ```
 
 ## 📤 Publishing
-Before publishing, check the following.
+Check the following.
 - [x] Make sure you created your `npm` [account](https://docs.npmjs.com/creating-a-new-npm-user-account).
 - [x] You need to login first in `npm` thru CLI during the first run. You can use `npm login`.
 - [x] Check your `package.json` and update the keys accordingly. Check the values of the common keys like
@@ -123,9 +118,9 @@ Before publishing, check the following.
 <br>
 
 ## "tsk" Script
-- ***tsk*** is a utility script created to help automate common tasks during the development.
-- It's a simple wrapper of existing `npm` commands and others. 
-- You might want to use it to do your stuff quickly like creating a class or publishing.
+- ***tsk*** is a utility script to help automate common tasks during the development.
+- It's a simple wrapper of existing `npm` commands and others shell commands.
+- Use it to do your stuff quickly like creating a class or publishing them.
 ## Usage
 > Open a terminal and run the following command.
 ```bash
