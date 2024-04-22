@@ -1,0 +1,177 @@
+#!/bin/bash
+
+CLASS_BASE_PATH="./src/lib/"
+CLASS_TEST_BASE_PATH="./test/lib/"
+SCRIPT_NAME="./tsk"
+
+# Function to display help message
+function display_help {
+    echo "Usage: $0 [--init|--help|--create-class|--dev|--test|--build|--publish]"
+    echo " "
+    echo "--help           display this help message"
+    echo "--init           initialize the script"
+    echo "--create-class   create new class and test class"
+    echo "                 $SCRIPT_NAME --create-class ClassName"
+    echo " "
+    echo "--dev            run the library in dev mode with autoreload for updates"
+    echo "--test           test the library"
+    echo "--build          build the libra4ry"
+    echo "--publish        publish to npm"
+    echo " "
+}
+
+# Function to initialize the script
+function initialize {
+    echo "Initializing..."
+    echo "Update the package.json keys based on the library you create"
+    npm init
+    npm install
+    echo "Done!"
+}
+
+# Function to initialize the script
+function create_class {
+    echo "Validating class name ..."
+    # Validate CLASS_NAME variable
+    if [ -z "$1" ]; then
+        echo "Error: No class name provided."
+        echo "Usage: $0 <class_name>"
+        exit 1
+    fi
+
+    CLASS_NAME=$1
+    if [[ ! "$CLASS_NAME" =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]; then
+        echo "Error: Invalid class name. Class name must start with a letter or underscore, followed by letters, digits, or underscores."
+        exit 1
+    fi
+
+TS_CONTENT=$(cat <<EOF
+export class $CLASS_NAME {
+    // Delete the following and create your own methods
+    hello() {
+        console.log("Hello from ts-skeleton - 💀💀💀!!!");
+    }
+}
+EOF
+)
+
+TS_TEST_CONTENT=$(cat <<EOF
+import { $CLASS_NAME } from "../../src/lib/$CLASS_NAME";
+describe('$CLASS_NAME', () => {
+  it('should log the expected message', () => {
+    // Create an instance of $CLASS_NAME
+    const yourClass = new $CLASS_NAME();
+
+    // Mock console.log
+    const consoleLogMock = jest.spyOn(console, 'log');
+
+    // Call the hello method
+    yourClass.hello();
+
+    // Assert that console.log was called with the expected message
+    expect(consoleLogMock).toHaveBeenCalledWith('Hello from ts-skeleton - 💀💀💀!!!');
+
+    // Restore the original console.log
+    consoleLogMock.mockRestore();
+  });
+});
+EOF
+)
+
+    CLASS_FILE=$CLASS_BASE_PATH/$CLASS_NAME.ts
+    TEST_FILE=$CLASS_TEST_BASE_PATH/$CLASS_NAME.test.ts
+
+    # Check if the test file already exists
+    echo "Checking if file exists ..."
+    if [ -f "$TEST_FILE" ]; then
+        echo "
+        Error: Test file $TEST_FILE already exists.
+        Please delete it or choose a different class name."
+        exit 1
+    fi
+
+
+    # Create the class file
+    echo "Creating a new class ..."
+    echo "$TS_CONTENT" > $CLASS_FILE
+    echo "Creating a new test class ..."
+    # Create the test file
+    echo "$TS_TEST_CONTENT" > $TEST_FILE
+    echo "----------------------"
+    echo "Base Class: - $CLASS_FILE"
+    echo "Test Class: - $TEST_FILE"
+    echo "----------------------"
+    echo "Manually update ./src/index.ts if you need to export this class publicly."
+    echo "----------------------"
+    echo "Done!"
+    npm run test $CLASS_NAME
+}
+
+# Function to run the library. Executes the package.json dev command 
+function dev {
+    echo "Running in dev mode ..."
+    npm run dev $@
+}
+
+# Function to test the library. Executes the package.json test command 
+function test {
+    echo "Running the test ..."
+    npm run test $@
+    echo "Done!"
+}
+
+# Function to build the library. Executes the package.json build command 
+function build {
+    echo "Initializing ..."
+    npm run build $@
+    echo "Done!"
+}
+
+# Function to publish the library. Executes the 
+function publish {
+    echo "Publishing ..."
+    tsc
+    npm publish $@
+    echo "Check your published package by accessing https://npmjs.com/package/*package-name*"
+    echo "For more details, check https://docs.npmjs.com/cli/v10/commands/npm-publish"
+    echo "Done!"
+}
+
+# Check if any arguments are provided
+if [ $# -eq 0 ]; then
+    echo "Error: No arguments provided. Use --help for usage instructions."
+    echo "Done!"
+    exit 1
+fi
+
+# Parse command line arguments
+while [[ "$1" =~ ^- ]]; do
+    case $1 in
+        --init)
+            initialize
+            ;;
+        --help)
+            display_help
+            ;;
+        --create-class)
+            create_class $2
+            ;;
+        --dev)
+            dev $@
+            ;;
+        --test)
+            test $@
+            ;;
+        --build)
+            build $@
+            ;;
+        --publish)
+            publish $@
+            ;;
+        *)
+            echo "Error: Invalid option: $1. Use --help for usage instructions."
+            exit 1
+            ;;
+    esac
+    shift
+done

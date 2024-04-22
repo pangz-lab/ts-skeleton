@@ -1,0 +1,1 @@
+export { TsSkeleton } from './lib/TsSkeleton';

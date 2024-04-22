@@ -1,0 +1,40 @@
+{
+  "name": "your-library-name",
+  "version": "0.0.1",
+  "description": "your-library-description",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "npx jest",
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "dev_ie": "nodemon examples/sample.ts"
+  },
+  "author": "your-name",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.25",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  },
+  "keywords": [],
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "homepage": "https://github.com/pangz-lab/ts-skeleton#readme",
+  "bugs": {
+    "url": "https://github.com/pangz-lab/ts-skeleton/issues",
+    "email": "update-your-email@here.com"
+  },
+  "directories": {
+    "test": "test"
+  }
+}
