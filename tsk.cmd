@@ -2,8 +2,8 @@
 setlocal
 
 rem Set variables
-set "CLASS_BASE_PATH=./src/lib/"
-set "CLASS_TEST_BASE_PATH=./test/lib/"
+set "CLASS_BASE_PATH=./src/lib"
+set "CLASS_TEST_BASE_PATH=./test/lib"
 set "SCRIPT_NAME=tsk.cmd"
 
 rem Function to display help message
@@ -28,6 +28,11 @@ echo Initializing...
 echo Update the package.json keys based on the library you create
 npm init
 npm install
+rem Rename README.md to README.main.md
+ren README.md README.main.md
+
+rem Rename README.lib.md to README.md
+ren README.lib.md README.md
 echo Done!
 goto :eof
 
@@ -115,7 +120,7 @@ goto :eof
 
 rem Function to build the library. Executes the package.json build command 
 :build
-echo Initializing ...
+echo Building ...
 npm run build %*
 echo Done!
 goto :eof

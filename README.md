@@ -64,7 +64,8 @@ wget -O ts-skeleton.zip https://github.com//pangz-lab/ts-skeleton/archive/refs/h
 # Update the new-name as the new library name
 # Running the ./tsk --init will show a prompt that allows an update of your package.json
 chmod +x ./ts-skeleton/tsk
-NEW_LIB_NAME=new-name && mv ts-skeleton $NEW_LIB_NAME && cd $NEW_LIB_NAME && ./tsk --init
+NEW_LIB_NAME=new-name
+mv ts-skeleton $NEW_LIB_NAME && cd $NEW_LIB_NAME && ./tsk --init && rm -rf .git
 ```
 
 [![L](https://skillicons.dev/icons?i=windows)](-)
@@ -72,13 +73,19 @@ NEW_LIB_NAME=new-name && mv ts-skeleton $NEW_LIB_NAME && cd $NEW_LIB_NAME && ./t
 ```cmd
 @rem Update the new-name as the new library name
 @rem Running the ./tsk --init will show a prompt that allows an update of your package.json
-set NEW_LIB_NAME=new-name && move ts-skeleton %NEW_LIB_NAME% && cd %NEW_LIB_NAME% && tsk.cmd --init
+set NEW_LIB_NAME=new-name
+move ts-skeleton %NEW_LIB_NAME% && cd %NEW_LIB_NAME% && tsk.cmd --init && rmdir /s /q .git
 ```
-
 
 # How to start?
 Simply follow the development flow below. There are check-points/notes for each section to serve as a guide however
 as your progress, you'll find yourself skipping most of it.
+
+### Optional Step
+Initialize git. [see here](https://cli.github.com/) for details.
+```bash
+git init
+```
 
 ## 💻 Development
 - Run the following command to start your library.
@@ -91,7 +98,7 @@ as your progress, you'll find yourself skipping most of it.
 ./tsk --create-class YourClass
 ```
 
-## ✅ Test
+## ✅ Testing
 - Run the following command to test your library.
 - [`jest`](https://jestjs.io/) is used as the main testing framework.
 ```bash
@@ -105,8 +112,8 @@ Before publishing, check the following.
 - [x] Check your `package.json` and update the keys accordingly. Check the values of the common keys like
  <br>`version`, `description`, `keywords`, `dependencies`,`homepage`, `bugs` and others. [See here](https://docs.npmjs.com/cli/v10/configuring-npm/package-json) for details.
 - [x] Each publish requires a new version. Increment the `version` value as needed.
-- [x] Document your library. Check and update the TODOs marker of `README.lib.md`.
-- [x] Rename `README.md` to `README.main.md` and `README.lib.md` to `README.md`
+- [x] Document your library. Check and update the TODOs marker of `README.md`.
+- [x] Check and update your license.
 
 ```bash
 ./tsk --publish
