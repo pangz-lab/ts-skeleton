@@ -1,34 +1,34 @@
 ![Logo](https://raw.githubusercontent.com/pangz-lab/ts-skeleton/main/ts-skeleton.png)
 # Typescript Skeleton
-This repo provides the bare minimum files to effectively create and publish a typescript library.<br>
-This is a template anyone can use and customize.
+This repo provides the bare minimum quick-start files to effectively create and publish a typescript library.<br>
+This template is for everyone to use and customize.
 
-## 
-Typescript and NodeJS has been around for some time but despite this fact, it's surprising that there is no standard of creating a library.
-It feels a bit cumbersome to start a project especially if you are a beginner who wants to simply develop and publish but cannot find a simpler and easy way to do it.
+## Why?
+Typescript and NodeJS has been around for some time but despite this fact, it's surprising there is no standard in creating a typescript library.
+It's a bit cumbersome to start a project especially if you are a beginner who wants to develop and publish but cannot find a simpler and easy way to do it.
 <br>
 <br>
-Without a proper template, you might find yourself installing/uninstalling libraries or modules you think you need at first but turned out to be of no use (as far as library creation in concern).
+Without a standard template, you might find yourself installing/uninstalling libraries or modules wasting so much time and effort experimenting.
 <br>
 <br>
-This template helps to solve that issue.
+This template helps to solve that problem.
 <br>
 <br>
-Following a few easy steps, you can create your own publishable library in a minute.
+By following a few simple steps, you can create your own publishable library in a minute.
 
 ## 📑 Requirements
 - `node`- `latest`
 - `npm`- `latest`
 - `npm` ***account***  ( create only when you are ready to publish )
 
-> There are no other hard requirements aprt from publishing. Publishing requires an account. Currently, this supports `npm` only ( although there are other repository like yarn and others that can be used for publishing ). You can check the official [npm](https://docs.npmjs.com/about-the-public-npm-registry) or [yarn](https://classic.yarnpkg.com/lang/en/docs/publishing-a-package/) website for more details. 
+> There are no other hard requirements apart from publishing a library. Publishing requires an account. Currently, this supports `npm` only.  Although there are other package manager like yarn and others that can be used for publishing, `npm` is the easiest and fastest method in this game. You can check the official [npm](https://docs.npmjs.com/about-the-public-npm-registry) or [yarn](https://classic.yarnpkg.com/lang/en/docs/publishing-a-package/) website for more details. 
 <br>
 <br>
 
 Publishing library to `npm` automatically make it available to `yarn`.
 
 ## 📥 Installation
-Clone/download this repo by using any of the following methods.
+Clone/download this repo. Choose any of the following methods.
 ### Git CLI
 ```bash
 git clone https://github.com/pangz-lab/ts-skeleton.git
@@ -37,17 +37,15 @@ git clone https://github.com/pangz-lab/ts-skeleton.git
 ### cURL
 ```bash
 curl -o ts-skeleton.zip https://github.com//pangz-lab/ts-skeleton/archive/refs/heads/main.zip
-# extract the zip file after download
 ```
 
 ### WGET
 ```bash
 wget -O ts-skeleton.zip https://github.com//pangz-lab/ts-skeleton/archive/refs/heads/main.zip
-# extract the zip file after download
 ```
 
 > ⚠️ NOTE <br>
-> Extract the zip file after the download.
+> For `cURL` and `wget`, extract the zip file after the download.
 
 # 🗂 Setup
 >
@@ -61,8 +59,7 @@ wget -O ts-skeleton.zip https://github.com//pangz-lab/ts-skeleton/archive/refs/h
 #### Linux & macOS
 ```bash
 chmod +x ./ts-skeleton/tsk
-NEW_LIB_NAME=new-name
-mv ts-skeleton $NEW_LIB_NAME && cd $NEW_LIB_NAME && ./tsk --init && rm -rf .git
+NEW_LIB_NAME=new-name && mv ts-skeleton $NEW_LIB_NAME && cd $NEW_LIB_NAME && ./tsk --init && rm -rf .git
 ```
 
 [![L](https://skillicons.dev/icons?i=windows)](-)
@@ -73,8 +70,8 @@ move ts-skeleton %NEW_LIB_NAME% && cd %NEW_LIB_NAME% && tsk.cmd --init && rmdir 
 ```
 
 # How to start?
-Follow the development flow below. There are check-points/notes each section to serve as a guide however
-as your progress, you'll find yourself skipping most of it - which is OK.
+Follow the development flow below. There are check-points/notes on each section to serve as a guide however
+as you progress, you'll find yourself skipping most of it - which is OK generally.
 
 ### Optional Step
 Initialize git. [see here](https://cli.github.com/) for details.
@@ -83,12 +80,12 @@ git init
 ```
 
 ## 💻 Development
-- Start your library
-- It autoreloads the code changes. Thanks to [`nodemon`](https://nodemon.io/).
+- [x] Start your library
+- [x] Code changes are reloaded automatically. Thanks to [`nodemon`](https://nodemon.io/).
 ```bash
 ./tsk --dev
 ```
-- Ceate a base class and a test class.
+- [x] Ceate a base class and a test class.
 ```bash
 ./tsk --create-class YourClass
 ```
@@ -101,14 +98,14 @@ git init
 ```
 
 ## 📤 Publishing
-Check the following.
+Check the following before publishing.
 - [x] Make sure you created your `npm` [account](https://docs.npmjs.com/creating-a-new-npm-user-account).
 - [x] You need to login first in `npm` thru CLI during the first run. You can use `npm login`.
 - [x] Check your `package.json` and update the keys accordingly. Check the values of the common keys like
  <br>`version`, `description`, `keywords`, `dependencies`,`homepage`, `bugs` and others. [See here](https://docs.npmjs.com/cli/v10/configuring-npm/package-json) for details.
-- [x] Each publish requires a new version. Increment the `version` value as needed.
-- [x] Document your library. Check and update the TODOs marker of `README.md`.
-- [x] Check and update your license.
+- [x] Each publish requires a new version. Increment the `version` as needed.
+- [x] Document your library. Check and update the `TODOs` marker in `README.md`.
+- [x] Check and update the license.
 
 ```bash
 ./tsk --publish
