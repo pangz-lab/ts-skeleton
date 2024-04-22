@@ -25,6 +25,7 @@ By following a few easy steps, you can create your own publishable library in a 
 > There are no other hard requirements for using this however, publishing requires an account. Currently, this supports `npm` only (although there are other repository like yarn and others). You can check the official [npm](https://docs.npmjs.com/about-the-public-npm-registry) or [yarn](https://classic.yarnpkg.com/lang/en/docs/publishing-a-package/) website for more details. 
 <br>
 <br>
+
 Publishing library to `npm` automatically make it available to `yarn` without an extra steps.
 
 ## 📥 Installation
@@ -62,7 +63,7 @@ wget -O ts-skeleton.zip https://github.com//pangz-lab/ts-skeleton/archive/refs/h
 ```bash
 # Update the new-name as the new library name
 # Running the ./tsk --init will show a prompt that allows an update of your package.json
-chmod +x tsk
+chmod +x ./ts-skeleton/tsk
 NEW_LIB_NAME=new-name && mv ts-skeleton $NEW_LIB_NAME && cd $NEW_LIB_NAME && ./tsk --init
 ```
 
