@@ -3,7 +3,7 @@
 This repo provides the bare minimum quick-start files to effectively create and publish a typescript library.<br>
 This template is for everyone to use and customize.
 
-## Why?
+# Why?
 Typescript and NodeJS has been around for some time but despite this fact, it's surprising there is no standard in creating a typescript library.
 It's a bit cumbersome to start a project especially if you are a beginner who wants to develop and publish but cannot find a simpler and easy way to do it.
 <br>
